@@ -48,11 +48,7 @@ const AdvantageSection = () => {
           </ul>
         </div>
 
-        <p className="text-lg font-medium mb-4">
-          Contact - <span className="font-bold text-gray-900">Mr. Sai Kiran</span> 
-        </p>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-4">
+      <div className="flex flex-col sm:flex-row justify-center gap-6 mb-4">
           
           <a
             href="tel:+919515519536"
