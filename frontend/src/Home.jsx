@@ -9,6 +9,7 @@ import ConnectivitySection from "./ConnectivitySection";
 import PricingSection from "./PricingSection";
 import WhatsAppButton from "./WhatsAppButton";
 import PopupForm from "./PopupForm";
+import AttentionGrabberButton from "./AttentionGrabberButton";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -21,6 +22,7 @@ const Home = () => {
   return (
     <>
       <StudyAbroadForm />
+      <AttentionGrabberButton/>
       <div id="project-overview">
         <h2 className="section-heading"></h2>
         <ProjectOverview />
