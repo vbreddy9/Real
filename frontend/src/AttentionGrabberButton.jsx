@@ -1,46 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { FaPhoneAlt } from "react-icons/fa";
 
 const AttentionGrabberButton = () => {
   const [showButton, setShowButton] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const message = encodeURIComponent("Hi, I'm interested in booking a site visit!");
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768); // Tailwind's md breakpoint
-    };
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 5000); // Show after 5 seconds
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const pageHeight = document.body.scrollHeight - window.innerHeight;
-      if (isMobile && scrollPosition > pageHeight * 0.2) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    };
+    return () => clearTimeout(timer);
+  }, []);
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    window.addEventListener("scroll", handleScroll);
+  const handleClick = () => {
+    setIsClicked(true);
+  };
 
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMobile]);
-
-  if (!showButton) return null;
+  if (!showButton || isClicked) return null;
 
   return (
-    <div className="fixed top-[70px] left-0 w-full z-40 flex justify-center md:hidden animate-bounce">
-      <a
-        href="tel:+919515519536"
-        className="bg-green-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-700 transition duration-300 flex items-center gap-2"
-      >
-        <FaPhoneAlt /> Call Now
-      </a>
-    </div>
+    <a
+      href={`https://wa.me/919515519536?text=${message}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={handleClick}
+      className="fixed top-1/2 left-0 transform -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-r-full shadow-lg hover:bg-green-600 transition z-50 animate-pulse"
+    >
+      BOOK SITE VISIT TODAY!
+    </a>
   );
 };
 
