@@ -141,8 +141,7 @@ const PopupForm = ({ show, onClose }) => {
             />
             <span>
               I authorize Urbanrise to contact me via Call, SMS, WhatsApp. I agree to the{" "}
-              <a href="/terms-conditions" className="text-blue-500 underline">T&C</a> and{" "}
-              <a href="/privacy-policy" className="text-blue-500 underline">Privacy Policy</a>.
+              T&C and{" "} Privacy Policy
             </span>
           </div>
           {errors.agreeTerms && <p className="text-red-500 text-sm">{errors.agreeTerms}</p>}
