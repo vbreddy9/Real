@@ -173,14 +173,7 @@ const Banner = () => {
               />
               <span>
                 I authorize Urbanrise Projects and its representatives to Call, SMS, Email or WhatsApp me. I also accept{" "}
-                <a href="/terms-conditions" className="text-blue-500 underline">
-                  T&C
-                </a>{" "}
-                and{" "}
-                <a href="/privacy-policy" className="text-blue-500 underline">
-                  Privacy Policy
-                </a>
-                .
+                T&C {" "} and Privacy Policy              .
               </span>
             </div>
             {errors.agreeTerms && <p className="text-red-500 text-sm">{errors.agreeTerms}</p>}
